@@ -24,5 +24,8 @@ $(document).ready(function() {
       $('.showGif').html(`<img class="m-3 rounded mx-auto my-auto d-block" src="${response.data[0].images.original.url}" />`);
     }
 
+    function logReset() {
+    }
+
   });
 });
