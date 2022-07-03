@@ -20,8 +20,12 @@ h1 {
   border: 1px solid lavender;
 }
 
-.btn-success {
+.btn {
   font-family: 'Courier New', Courier, monospace;
+  margin: 15px;
   background-color: coral;
+  width: 200px;
+  color:antiquewhite;
   border-radius: 10px;
+  border: 2px solid cornflowerblue;
 }
