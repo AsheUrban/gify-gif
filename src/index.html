@@ -3,22 +3,23 @@
   <title>Gif Finder</title>
 </head>
 <body>
-  <div class="container">
-    <h1>magic gif generator</h1>
-    <label for="q">enter a word of your choosing:</label>
-    <input id="q" type="text">
- 
-  <button class="btn" id="stringQuery">cast!</button>
+  <form id="gif"></form>
+    <div class="container">
+      <h1>magic gif generator</h1>
+      <label for="q">enter a word of your choosing:</label>
+      <input id="q" type="text">
+  
+    <button type="submit" class="btn">cast!</button>
 
-    <div class="card">
-      <div class="showGif"></div>
-    </div>
-
-    <div class="card">
-      <button class="btn" id="popular">on trend?</button>
-      <button class="btn" id="random">magic random go!</button>
-    </div>
-</div>
+      <div class="card">
+        <div class="showGif"></div>
+      </div>
+    </form>
+      <div class="card">
+        <button type="click" class="btn" id="popular">on trend?</button>
+        <button type="click"class="btn" id="random">magic random go!</button>
+      </div>
+  </div>
 <script type="text/javascript" src="bundle.js"></script>
 </body>
 </html>

@@ -2,59 +2,59 @@ import $ from "jquery";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
+import magicGif from "./js/gify";
+
+function clearFields() {
+  $("#q").val("");
+}
 
 $(document).ready(function() {
-  $("#stringQuery").click(function() {
+  $("form#gif").submit(function(event) {
+    event.preventDefault();
     const search = $("#q").val();
-    $("#q").val("");
+    clearFields();
 
-    let request = new XMLHttpRequest();
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${search}&limit=25&offset=0&rating=g&lang=en`;
-    request.onreadystatechange = function() {
-      if (this.readyState === 4 && this.status === 200) {
-        const response = JSON.parse(this.responseText);
-        showGif(response);
+    let promise = magicGif.getGif(search);
+
+    promise.then(function(response) {
+      const body = JSON.parse(response);
+        for (let i=0; i<10; i++) {
+        $(".showGif").html(`<img src="${body.data[i].images.original.url}"/>`);
       }
-    }
-
-    request.open("GET", url, true);
-    request.send();
+    })
   });
+
+
 
   $("#popular").click(function(event) {
     event.preventDefault();
-    let request = new XMLHttpRequest();
-    const trending = `http://api.giphy.com/v1/gifs/trending?api_key=${process.env.API_KEY}&limit=10`;
-    request.onreadystatechange = function() {
-      if (this.readyState === 4 && this.status === 200){
-        let response = JSON.parse(this.responseText);
-        showGif(response);
+    const trending = $("#popular").val();
+
+    let promise = magicGif.getTrendingGif(trending);
+
+    promise.then(function(response) {
+      const body = JSON.parse(response);
+        for (let i=0; i<10; i++) {
+          $(".showGif").html(`<img src="${body.data[i].images.original.url}"/>`);
       }
-    }
-    request.open("GET", trending, true);
-    request.send();
+    });
   });
 
   $("#random").click(function(event) {
     event.preventDefault();
-    let request = new XMLHttpRequest();
-    const random = `http://api.giphy.com/v1/gifs/random?api_key=${process.env.API_KEY}`;
-    request.onreadystatechange = function() {
-      if (this.readyState === 4 && this.status === 200){
-        let response = JSON.parse(this.responseText);
-        showGif(response);
+    const random = $("#random").val();
+
+    let promise = magicGif.getRandomGif(random);
+    
+    promise.then(function(response) {
+      const body = JSON.parse(response);
+        for (let i=0; i<10; i++) {
+          $(".showGif").html(`<img src="${body.data[i].images.original.url}"/>`);
       }
-    }
-    request.open("GET", random, true);
-    request.send();
+    });
   });
 
-    function showGif(response) {
-      for (let i=0; i<10; i++) {
-        $(".showGif").html(`<img src="${response.data[i].images.original.url}"/>`);
-      }
-    }
+    // function logReset() {
+    // }
 
-    function logReset() {
-    }
 });
