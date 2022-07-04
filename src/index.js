@@ -24,7 +24,6 @@ $(document).ready(function() {
   });
 });
 
-
   $("#popular").click(function(event) {
     event.preventDefault();
     clearFields();

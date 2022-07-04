@@ -1,4 +1,5 @@
 export default class magicGif {  
+  
   static getGif(search) {
     return new Promise((resolve, reject) => {
       let request = new XMLHttpRequest();
@@ -49,4 +50,5 @@ export default class magicGif {
       request.send();
     });
   }
+
 } 
