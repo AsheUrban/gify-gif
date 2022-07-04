@@ -6,55 +6,46 @@ import magicGif from "./js/gify";
 
 function clearFields() {
   $("#q").val("");
+  $(".showGif").val("");
 }
 
 $(document).ready(function() {
-  $("form#gif").submit(function(event) {
+  $("#searchQuery").click(function(event) {
     event.preventDefault();
     const search = $("#q").val();
     clearFields();
-
     let promise = magicGif.getGif(search);
-
-    promise.then(function(response) {
+    promise.then((response) => {
       const body = JSON.parse(response);
-        for (let i=0; i<10; i++) {
-        $(".showGif").html(`<img src="${body.data[i].images.original.url}"/>`);
-      }
-    })
+      let index = Math.floor(Math.random() * 15);
+      $(".showGif").html(`<img src="${body.data[index].images.original.url}"/img>`);
+    }, function(error) {
+      $('.showErrors').text(`There was an error processing your request: ${error}`);
   });
-
+});
 
 
   $("#popular").click(function(event) {
     event.preventDefault();
-    const trending = $("#popular").val();
-
-    let promise = magicGif.getTrendingGif(trending);
-
-    promise.then(function(response) {
+    clearFields();
+    let promise = magicGif.getTrendingGif();
+    promise.then((response) => {
       const body = JSON.parse(response);
-        for (let i=0; i<10; i++) {
-          $(".showGif").html(`<img src="${body.data[i].images.original.url}"/>`);
-      }
+      $(".showGif").html(`<img src="${body.data[Math.floor(Math.random() * 20)].images.original.url}"/img>`);
+    }, function(error) {
+      $(".showErrors").text(`There was an error processing your request: ${error}`);
     });
   });
 
   $("#random").click(function(event) {
     event.preventDefault();
-    const random = $("#random").val();
-
-    let promise = magicGif.getRandomGif(random);
-    
-    promise.then(function(response) {
+    clearFields();
+    let promise = magicGif.getRandomGif();
+    promise.then((response) => {
       const body = JSON.parse(response);
-        for (let i=0; i<10; i++) {
-          $(".showGif").html(`<img src="${body.data[i].images.original.url}"/>`);
-      }
+      $(".showGif").html(`<img src="${body.data.images.original.url}"/img>`);
+    }, function(error) {
+      $(".showErrors").text(`There was an error processing your request: ${error}`);
     });
   });
-
-    // function logReset() {
-    // }
-
 });
