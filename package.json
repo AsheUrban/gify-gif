@@ -11,15 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ftolentino/shape-tracker.git"
+    "url": "git+https://github.com/AsheUrban/gify-gif.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ftolentino/shape-tracker/issues"
-  },
-  "homepage": "https://github.com/ftolentino/shape-tracker#readme",
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-transform-modules-commonjs": "^7.6.0",

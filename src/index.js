@@ -21,8 +21,8 @@ $(document).ready(function() {
       $(".showGif").html(`<img src="${body.data[index].images.original.url}"/img>`);
     }, function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error}`);
+    });
   });
-});
 
   $("#popular").click(function(event) {
     event.preventDefault();

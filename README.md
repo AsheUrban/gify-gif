@@ -1,8 +1,6 @@
-## Project Name
+## magic gif generator
 
-
-
-#### By Filmer Tolentino
+#### By Ashe Urban
 
 ## Technologies Used
 
@@ -12,42 +10,45 @@
 * _JS_
 * _jQuery_
 * _Github_
-* _Jest_
 * _webpack_
-* _Babel_
-* _npm package manager_
 
 ## Description
 
 _Description of project_
 
+_Create an application that allows users to search Giphy for interesting GIFs. Make sure to carefully read Giphy's documentation as you build out your application._
+
+_Link to Lesson:_ https://www.learnhowtoprogram.com/intermediate-javascript/asynchrony-and-apis/openweather-api-giphy-api
+
 ## Objectives
 
-* Objective list
+* _A fully functioning webpack environment._
+* _Testing the API via Postman before coding._
+* _An API key protected via a .env file._
+* _Error handling for the API call._
 
-## Links
-<!-- insert your own links here -->
-* [PokemonTCG](https://docs.pokemontcg.io/)
-* [colr.org](https://www.colr.org/api.html)
 ## Setup/Installation Requirements
+- _npm install_
+- _follow instructions below on setting up a giphy api key._
+- _npm run start_
 
-* _git clone **repository link**, to your local machine._
-* _$npm install in the root directory_
-* _npm run build, npm start_
-* _open up chrome dev tools console, to see console logs of the app working (since there's no UI). You can change your age in the first parameter of the showAge method calls on the top of index.js._
 
-* run $ npm install to install dependencies
-* run $ npm install dotenv-webpack@2.0.0 --save-dev
+### Setup/Installation for using Giphy API
+- _Sign up for an account, and sign in. https://developers.giphy.com/_
+- _Once you are signed in, go to your dashboard._
+- _Copy your api key._
+- _Add .env file to .gitignore, commit and push (before touching .env)._
+- _Touch .env and add API _ KEY=[YOUR API KEY], replacing brackets with your individual key and removing any spaces._
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _Uncaught (in promise) TypeError: Cannot read properties of undefined at 21 & 30 of index.js._
+
 
 ## License
 * MIT
 
 ## Contact Information
-_If you run into any issues or have any concerns, feel free to [Contact me: filmer.tolentino@gmail.com](mailto:filmer.tolentino@gmail.com), or request to make any contributions to my code._
+_If you run into any issues or have any concerns, feel free to [Contact me: ashe@goldentounge.com](mailto:ashe@goldentongue.com), or request to make any contributions to my code._
 
-Copyright (c) _6/29/2022_ _Filmer Tolentino_
+Copyright (c) _February 2023_ _Ashe Urban_
